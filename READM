@@ -1,0 +1,58 @@
+ # Salom bu pack (python)
+
+import random
+import time
+
+# O'rta va yuqori darajadagi taniqli futbolchilar ro'yxati (Ismi, Reytingi, Klubi)
+FUTBOLCHILAR = [
+    {"ism": "Kylian Mbappé", "reyting": 91, "klub": "Real Madrid"},
+    {"ism": "Erling Haaland", "reyting": 91, "klub": "Manchester City"},
+    {"ism": "Kevin De Bruyne", "reyting": 90, "klub": "Manchester City"},
+    {"ism": "Jude Bellingham", "reyting": 90, "klub": "Real Madrid"},
+    {"ism": "Harry Kane", "reyting": 90, "klub": "Bayern Munich"},
+    {"ism": "Vinícius Júnior", "reyting": 90, "klub": "Real Madrid"},
+    {"ism": "Mohamed Salah", "reyting": 89, "klub": "Liverpool"},
+    {"ism": "Lautaro Martínez", "reyting": 89, "klub": "Inter Milan"},
+    {"ism": "Antoine Griezmann", "reyting": 88, "klub": "Atletico Madrid"},
+    {"ism": "Robert Lewandowski", "reyting": 88, "klub": "Barcelona"},
+    {"ism": "Bernardo Silva", "reyting": 88, "klub": "Manchester City"},
+    {"ism": "Federico Valverde", "reyting": 88, "klub": "Real Madrid"},
+    {"ism": "Bruno Fernandes", "reyting": 87, "klub": "Manchester United"},
+    {"ism": "Frenkie de Jong", "reyting": 87, "klub": "Barcelona"},
+    {"ism": "Heung-min Son", "reyting": 87, "klub": "Tottenham"},
+]
+
+
+def pack_ochish():
+    print("\n--- 🎁 PACK OCHILMOQDA... 🎁 ---")
+    time.sleep(1.5)  # Effekt berish uchun biroz kutish
+
+    # Ro'yxatdan tasodifiy 3 ta futbolchini tanlash
+    ochilgan_futbolchilar = random.sample(FUTBOLCHILAR, 3)
+
+    # Eng yuqori reytingli futbolchini (Walkout) aniqlash
+    eng_zo_ri = max(ochilgan_futbolchilar, key=lambda x: x["reyting"])
+
+    print("✨ ENG ZO'R FUTBOLCHI: WALKOUT! ✨")
+    print("---------------------------------")
+    print(f"🏃‍♂️ Ism: {eng_zo_ri['ism']}")
+    print(f"📊 Reyting: {eng_zo_ri['reyting']}")
+    print(f"🛡️ Klub: {eng_zo_ri['klub']}")
+    print("---------------------------------\n")
+
+    print("Pack ichidagi barcha futbolchilar:")
+    for i, f in enumerate(ochilgan_futbolchilar, 1):
+        print(f"{i}. {f['ism']} ({f['reyting']}) - {f['klub']}")
+
+
+# Dasturni ishga tushirish
+if __name__ == "__main__":
+    while True:
+        javob = input("\nPack ochishni xohlaysizmi? (ha/yo'q): ").strip().lower()
+        if javob == "ha":
+            pack_ochish()
+        elif javob == "yo'q":
+            print("O'yin tugadi. Rahmat!")
+            break
+        else:
+            print("Iltimos, 'ha' yoki 'yo'q' deb yozing.")
